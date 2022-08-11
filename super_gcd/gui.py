@@ -31,7 +31,10 @@ class MainApplication(tk.Frame):
         greeting.pack()
         frame.pack()
 
-if __name__ == "__main__":
+def main():
     root = tk.Tk()
     app = MainApplication(root)
     root.mainloop()
+
+if __name__ == "__main__":
+    main()
