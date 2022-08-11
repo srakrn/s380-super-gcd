@@ -1,5 +1,7 @@
 import tkinter as tk
 
+from super_gcd.gcd import gcd
+
 class MainApplication(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
@@ -32,7 +34,21 @@ class MainApplication(tk.Frame):
         self.frame.pack()
     
     def gcd_button(self):
+        def _sanitise_input(self, x, y):
+            x, y = int(x), int(y)
+            if all([x > 0, y > 0]):
+                return x, y
+            else:
+                raise ValueError
         print("GCD button pressed!")
+        x, y = self.entry_inp_1.get(), self.entry_inp_2.get()
+        print(f"x, y = {x}, {y}")
+        try:
+            x, y = _sanitise_input(self, x, y)
+            gcd_result = gcd(x, y)
+            self.label_result.config(text=f"GCD = {gcd_result}")
+        except ValueError:
+            self.label_result.config(text="Invalid input")
 
 def main():
     root = tk.Tk()
