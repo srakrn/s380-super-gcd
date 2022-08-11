@@ -23,13 +23,16 @@ class MainApplication(tk.Frame):
         self.spacer = tk.Label(master=self.frame, text="")
         self.spacer.grid(row=3, column=0)
 
-        self.btn_submit = tk.Button(master=self.frame, text="GCD \N{RIGHTWARDS BLACK ARROW}")
+        self.btn_submit = tk.Button(master=self.frame, text="GCD \N{RIGHTWARDS BLACK ARROW}", command=self.gcd_button)
         self.label_result = tk.Label(master=self.frame, text="")
         self.btn_submit.grid(row=4, column=0, sticky="nesw")
         self.label_result.grid(row=4, column=1, sticky="nesw")
 
         self.greeting.pack()
         self.frame.pack()
+    
+    def gcd_button(self):
+        print("GCD button pressed!")
 
 def main():
     root = tk.Tk()
