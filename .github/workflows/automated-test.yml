@@ -28,8 +28,9 @@ jobs:
           python -m pip install -e .[dev]
       - name: Lint with Pylint
         continue-on-error: true
-        run: |
-          pylint --enable=F,E,C,R,W --disable=invalid-name,broad-except,logging-fstring-interpolation,protected-access --unsafe-load-any-extension=y --max-line-length=88 super_gcd 
+        run: >
+          pylint --enable=F,E,C,R,W --disable=invalid-name,broad-except,logging-fstring-interpolation,protected-access
+          --unsafe-load-any-extension=y --max-line-length=88 super_gcd 
       - name: Test with pytest
         run: |
           pytest
